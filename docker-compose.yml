@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  portainer:
+    image: portainer/portainer
+    # password = 'portainer'
+    command: -H tcp://10.0.75.1:2375 --no-auth
+    restart: always
+    ports:
+      - 9000:9000
+    volumes:
+      # - .\pipe\docker_engine:/var/run/docker.sock
+      - ./portainer_data:/data
